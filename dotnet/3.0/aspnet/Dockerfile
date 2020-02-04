@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0.2-buster-slim
 
-ENV NEWRELIC_AGENT_VERSION=8.23.107.0 \ 
+ENV ASPNETCORE_VERSION=3.0.2 \
+    NEWRELIC_AGENT_VERSION=8.23.107.0 \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-netcore20-agent \
     CORECLR_PROFILER_PATH=/usr/local/newrelic-netcore20-agent/libNewRelicProfiler.so
