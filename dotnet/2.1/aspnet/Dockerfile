@@ -1,7 +1,7 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.20-stretch-slim
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.23-stretch-slim
 
-ENV ASPNETCORE_VERSION=2.1.20 \
-    NEWRELIC_AGENT_VERSION=8.30.0 \ 
+ENV ASPNETCORE_VERSION=2.1.23 \
+    NEWRELIC_AGENT_VERSION=8.34.0 \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-netcore20-agent \
     CORECLR_PROFILER_PATH=/usr/local/newrelic-netcore20-agent/libNewRelicProfiler.so
