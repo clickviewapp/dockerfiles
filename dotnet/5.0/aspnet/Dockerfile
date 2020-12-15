@@ -1,6 +1,6 @@
-FROM {{image_repo}}:{{image_version}}-{{image_type}}
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.1-buster-slim
 
-ENV {{env_version_key}}={{image_version}} \
+ENV ASPNETCORE_VERSION=5.0.1 \
     NEWRELIC_AGENT_VERSION=8.36.0 \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-netcore20-agent \
