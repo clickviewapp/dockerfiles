@@ -1,4 +1,4 @@
-ARG newrelic_agent_version=8.40.0
+ARG newrelic_agent_version=9.0.0
 
 # Stage to download and extract the new relic agent
 FROM alpine:latest AS builder
@@ -15,13 +15,13 @@ RUN curl -SL --output newrelicagent.tar.gz https://download.newrelic.com/dot_net
 
 
 # Main image
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.28-stretch-slim
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.30-stretch-slim
 
 ARG newrelic_agent_version
 
 COPY --from=builder /usr/local /usr/local
 
-ENV ASPNETCORE_VERSION=2.1.28 \
+ENV ASPNETCORE_VERSION=2.1.30 \
     NEWRELIC_AGENT_VERSION=$newrelic_agent_version \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-netcore20-agent \
