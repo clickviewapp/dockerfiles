@@ -1,4 +1,4 @@
-ARG newrelic_agent_version=9.0.0
+ARG newrelic_agent_version=9.2.0
 
 # Stage to download and extract the new relic agent
 FROM alpine:latest AS builder
