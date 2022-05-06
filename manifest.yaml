@@ -1,17 +1,5 @@
 dotnet:
   versions:
-    '2.1/aspnet':
-      data:
-        image_repo: mcr.microsoft.com/dotnet/core/aspnet
-        image_version: 2.1.30
-        image_type: stretch-slim
-        env_version_key: ASPNETCORE_VERSION
-    '2.1/runtime':
-      data:
-        image_repo: mcr.microsoft.com/dotnet/core/runtime
-        image_version: 2.1.30
-        image_type: stretch-slim
-        env_version_key: DOTNET_VERSION
     '3.1/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/core/aspnet
