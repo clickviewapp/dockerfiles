@@ -15,13 +15,13 @@ RUN curl -SL --output newrelicagent.tar.gz https://download.newrelic.com/dot_net
 
 
 # Main image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.9-buster-slim
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.17-buster-slim
 
 ARG newrelic_agent_version
 
 COPY --from=builder /usr/local /usr/local
 
-ENV ASPNETCORE_VERSION=5.0.9 \
+ENV ASPNETCORE_VERSION=5.0.17 \
     NEWRELIC_AGENT_VERSION=$newrelic_agent_version \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-netcore20-agent \
