@@ -36,3 +36,9 @@ dotnet:
         image_version: 6.0.7
         image_type: bullseye-slim
         env_version_key: DOTNET_VERSION
+
+dotnet-sdk:
+  versions:
+    '6.0':
+      data:
+        image_version: 6.0.302-bullseye-slim
