@@ -1,4 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:{{image_version}}
 
+# Add dotnet tools to path
+ENV PATH="/root/.dotnet/tools:${PATH}"
+
 # Install cake
 RUN dotnet tool install --global Cake.Tool --version 2.2.0
