@@ -3,25 +3,25 @@ dotnet:
     '3.1/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/core/aspnet
-        image_version: 3.1.31
+        image_version: 3.1.32
         image_type: buster-slim
         env_version_key: ASPNETCORE_VERSION
     '3.1/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/core/runtime
-        image_version: 3.1.31
+        image_version: 3.1.32
         image_type: buster-slim
         env_version_key: DOTNET_VERSION
     '6.0/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 6.0.11
+        image_version: 6.0.13
         image_type: bullseye-slim
         env_version_key: ASPNETCORE_VERSION
     '6.0/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 6.0.11
+        image_version: 6.0.13
         image_type: bullseye-slim
         env_version_key: DOTNET_VERSION
 
@@ -29,4 +29,4 @@ dotnet-sdk:
   versions:
     '6.0':
       data:
-        image_version: 6.0.403-bullseye-slim
+        image_version: 6.0.405-bullseye-slim
