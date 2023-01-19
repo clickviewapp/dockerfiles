@@ -12,9 +12,24 @@ dotnet:
         image_version: 6.0.13
         image_type: bullseye-slim
         env_version_key: DOTNET_VERSION
+    '7.0/aspnet':
+      data:
+        image_repo: mcr.microsoft.com/dotnet/aspnet
+        image_version: 7.0.2
+        image_type: bullseye-slim
+        env_version_key: ASPNETCORE_VERSION
+    '7.0/runtime':
+      data:
+        image_repo: mcr.microsoft.com/dotnet/runtime
+        image_version: 7.0.2
+        image_type: bullseye-slim
+        env_version_key: DOTNET_VERSION
 
 dotnet-sdk:
   versions:
     '6.0':
       data:
         image_version: 6.0.405-bullseye-slim
+    '7.0':
+      data:
+        image_version: 7.0.102-bullseye-slim
