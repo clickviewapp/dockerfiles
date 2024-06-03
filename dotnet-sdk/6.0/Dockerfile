@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0.419-bullseye-slim
+FROM mcr.microsoft.com/dotnet/sdk:6.0.423-bullseye-slim
 
 # Add dotnet tools to path
 ENV PATH="/root/.dotnet/tools:${PATH}"
