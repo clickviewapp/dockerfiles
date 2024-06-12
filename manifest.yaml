@@ -3,37 +3,37 @@ dotnet:
     '6.0/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 6.0.27
+        image_version: 6.0.31
         image_type: bullseye-slim
         env_version_key: ASPNETCORE_VERSION
     '6.0/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 6.0.27
+        image_version: 6.0.31
         image_type: bullseye-slim
         env_version_key: DOTNET_VERSION
     '7.0/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 7.0.16
+        image_version: 7.0.20
         image_type: bullseye-slim
         env_version_key: ASPNETCORE_VERSION
     '7.0/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 7.0.16
+        image_version: 7.0.20
         image_type: bullseye-slim
         env_version_key: DOTNET_VERSION
     '8.0/aspnet':
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 8.0.2
+        image_version: 8.0.6
         image_type: bookworm-slim
         env_version_key: ASPNETCORE_VERSION
     '8.0/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 8.0.2
+        image_version: 8.0.6
         image_type: bookworm-slim
         env_version_key: DOTNET_VERSION
 
@@ -41,10 +41,10 @@ dotnet-sdk:
   versions:
     '6.0':
       data:
-        image_version: 6.0.419-bullseye-slim
+        image_version: 6.0.423-bullseye-slim
     '7.0':
       data:
-        image_version: 7.0.406-bullseye-slim
+        image_version: 7.0.410-bullseye-slim
     '8.0':
       data:
-        image_version: 8.0.201-bookworm-slim
+        image_version: 8.0.301-bookworm-slim
