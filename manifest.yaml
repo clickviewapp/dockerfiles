@@ -41,7 +41,7 @@ dotnet-sdk:
   versions:
     '6.0':
       data:
-        image_version: 6.0.428-bullseye-slim
+        image_version: 6.0.428-1-bullseye-slim
     '7.0':
       data:
         image_version: 7.0.410-bullseye-slim
