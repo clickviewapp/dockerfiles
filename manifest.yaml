@@ -14,10 +14,10 @@ dotnet:
         env_version_key: DOTNET_VERSION
     '9.0/aspnet':
       data:
-        image_repo: mcr.microsoft.com/dotnet/runtime
+        image_repo: mcr.microsoft.com/dotnet/aspnet
         image_version: 9.0.0
         image_type: bookworm-slim
-        env_version_key: DOTNET_VERSION
+        env_version_key: ASPNETCORE_VERSION
     '9.0/runtime':
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
@@ -32,4 +32,4 @@ dotnet-sdk:
         image_version: 8.0.404-bookworm-slim
     '9.0':
       data:
-        image_version: 9.0.101-bookwork-slim
+        image_version: 9.0.101-bookworm-slim
