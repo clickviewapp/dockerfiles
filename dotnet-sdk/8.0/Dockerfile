@@ -10,4 +10,4 @@ ENV CAKE_SETTINGS_ENABLESCRIPTCACHE=true
 RUN dotnet tool install --global Cake.Tool --version 3.1.0
 
 # Intall trx2junit
-RUN dotnet tool install --global trx2junit
+RUN dotnet tool install --global trx2junit --version 2.1.0
