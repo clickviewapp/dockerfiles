@@ -37,7 +37,7 @@ jobs:
           done
 
           # Convert array to JSON for matrix
-          json=$(printf '%s\n' "${files[@]}" | jq -R . | jq -s .)
+          json=$(printf '%s\n' "${files[@]}" | jq -R -c . | jq -c -s .)
           echo "dockerfiles=$json" >> $GITHUB_OUTPUT
 
   build-and-push:
