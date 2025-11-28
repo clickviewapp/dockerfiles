@@ -76,5 +76,4 @@ jobs:
           file: ${{ steps.metadata.outputs.directory }}/Dockerfile
           push: false
           tags: |
-            ${{ steps.metadata.outputs.image }}:latest
-            ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.short_sha }}
+            ${{ steps.metadata.outputs.image }}
