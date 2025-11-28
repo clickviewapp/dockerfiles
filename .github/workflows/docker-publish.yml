@@ -83,3 +83,4 @@ jobs:
           tags: |
             ${{ steps.metadata.outputs.image }}:latest
             ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.short_sha }}
+
