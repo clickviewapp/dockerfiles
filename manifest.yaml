@@ -8,18 +8,21 @@ dotnet:
         image_type: bookworm-slim
         env_version_key: ASPNETCORE_VERSION
     '8.0/runtime':
+      image_name: clickview/dotnet-core-runtime:8.0
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
         image_version: 8.0.19
         image_type: bookworm-slim
         env_version_key: DOTNET_VERSION
     '9.0/aspnet':
+      image_name: clickview/dotnet-core-aspnet:9.0
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
         image_version: 9.0.8
         image_type: bookworm-slim
         env_version_key: ASPNETCORE_VERSION
     '9.0/runtime':
+      image_name: clickview/dotnet-core-runtime:9.0
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
         image_version: 9.0.8
@@ -29,8 +32,10 @@ dotnet:
 dotnet-sdk:
   versions:
     '8.0':
+      image_name: clickview/dotnet-core-sdk:8.0
       data:
         image_version: 8.0.413-bookworm-slim
     '9.0':
+      image_name: clickview/dotnet-core-sdk:9.0
       data:
         image_version: 9.0.304-bookworm-slim
