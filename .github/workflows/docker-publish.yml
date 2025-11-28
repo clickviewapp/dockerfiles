@@ -8,7 +8,7 @@ jobs:
   discover-dockerfiles:
     runs-on: ubuntu-latest
     outputs:
-      dockerfiles: ${{ steps.set-output.outputs.dockerfiles }}
+      dockerfiles: ${{ steps.extract.outputs.dockerfiles }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,26 +21,21 @@ jobs:
           # Iterate all root keys
           roots=$(yq e -r 'keys | .[]' manifest.yaml)
           for root in $roots; do
-            # Iterate versions using process substitution to avoid subshell issues
             while read -r version; do
               echo "Found ${root} | ${version}"
               dockerfile="./${root}/${version}/Dockerfile"
-              # Read image_name
+              # Read image_name safely
               image_name=$(yq e -r ".${root}.versions.\"${version}\".image_name" manifest.yaml)
-              echo "Image name: ${image_name}"
+              echo "Image name: $image_name"
               if [ -n "$image_name" ] && [ "$image_name" != "null" ]; then
                 files+=("$dockerfile|$image_name")
               fi
             done < <(yq e -r ".${root}.versions | keys | .[]" manifest.yaml)
           done
 
-          # Convert array to JSON for GitHub Actions matrix
+          # Convert array to JSON for matrix
           json=$(printf '%s\n' "${files[@]}" | jq -R . | jq -s .)
           echo "dockerfiles=$json" >> $GITHUB_OUTPUT
-
-      - name: Set output
-        id: set-output
-        run: echo "dockerfiles=${{ steps.extract.outputs.dockerfiles }}" >> $GITHUB_OUTPUT
 
   build-and-push:
     needs: discover-dockerfiles
@@ -62,26 +57,27 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Debug matrix
-        run: |
-          echo "Matrix entries:"
-          echo "${{ matrix.entry }}"
-
       - name: Parse Dockerfile and image
         id: metadata
         run: |
-          dockerfile="${{ matrix.entry%%|* }}"
-          image="${{ matrix.entry##*| }}"
+          # Split matrix.entry into Dockerfile and image
+          dockerfile="${{ matrix.entry }}"
+          dockerfile="${dockerfile%%|*}"
+          image="${{ matrix.entry }}"
+          image="${image##*|}"
           dir=$(dirname "$dockerfile")
+          short_sha="${GITHUB_SHA:0:7}"
+
           echo "directory=$dir" >> $GITHUB_OUTPUT
           echo "image=$image" >> $GITHUB_OUTPUT
+          echo "short_sha=$short_sha" >> $GITHUB_OUTPUT
 
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
           context: ${{ steps.metadata.outputs.directory }}
           file: ${{ steps.metadata.outputs.directory }}/Dockerfile
-          push: false
+          push: true
           tags: |
             ${{ steps.metadata.outputs.image }}:latest
-            ${{ steps.metadata.outputs.image }}:${{ github.sha::7 }}
+            ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.short_sha }}
