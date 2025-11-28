@@ -1,6 +1,10 @@
 name: Build & Publish Docker Images
 
 on:
+  push:
+    branches:
+      - master
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -80,4 +84,3 @@ jobs:
           tags: |
             ${{ steps.metadata.outputs.image }}:latest
             ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.short_sha }}
-
