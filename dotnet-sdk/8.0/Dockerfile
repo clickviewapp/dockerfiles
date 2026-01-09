@@ -7,7 +7,7 @@ ENV PATH="/root/.dotnet/tools:${PATH}"
 ENV CAKE_SETTINGS_ENABLESCRIPTCACHE=true
 
 # Install cake
-RUN dotnet tool install --global Cake.Tool --version 3.1.0
+RUN dotnet tool install --global Cake.Tool --version 6.0.0
 
 # Intall trx2junit
 RUN dotnet tool install --global trx2junit --version 2.1.0
