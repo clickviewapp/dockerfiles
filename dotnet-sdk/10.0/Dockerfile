@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0.100-noble
+FROM mcr.microsoft.com/dotnet/sdk:10.0.102-noble
 
 # Add dotnet tools to path
 ENV PATH="/root/.dotnet/tools:${PATH}"
