@@ -5,7 +5,7 @@ dotnet:
       image_name: clickview/dotnet-core-aspnet:8.0
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 8.0.23
+        image_version: 8.0.31
         image_type: bookworm-slim
         env_version_key: ASPNETCORE_VERSION
 
@@ -13,7 +13,7 @@ dotnet:
       image_name: clickview/dotnet-core-runtime:8.0
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 8.0.23
+        image_version: 8.0.31
         image_type: bookworm-slim
         env_version_key: DOTNET_VERSION
 
@@ -22,7 +22,7 @@ dotnet:
       image_name: clickview/dotnet-core-aspnet:9.0
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 9.0.12
+        image_version: 9.0.20
         image_type: bookworm-slim
         env_version_key: ASPNETCORE_VERSION
 
@@ -30,7 +30,7 @@ dotnet:
       image_name: clickview/dotnet-core-runtime:9.0
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 9.0.12
+        image_version: 9.0.20
         image_type: bookworm-slim
         env_version_key: DOTNET_VERSION
 
@@ -39,14 +39,14 @@ dotnet:
       image_name: clickview/dotnet-core-aspnet:10.0
       data:
         image_repo: mcr.microsoft.com/dotnet/aspnet
-        image_version: 10.0.2
+        image_version: 10.0.12
         image_type: noble
         env_version_key: ASPNETCORE_VERSION
     '10.0/runtime':
       image_name: clickview/dotnet-core-runtime:10.0
       data:
         image_repo: mcr.microsoft.com/dotnet/runtime
-        image_version: 10.0.2
+        image_version: 10.0.12
         image_type: noble
         env_version_key: DOTNET_VERSION
 
@@ -55,14 +55,14 @@ dotnet-sdk:
     '8.0':
       image_name: clickview/dotnet-core-sdk:8.0
       data:
-        image_version: 8.0.417-bookworm-slim
+        image_version: 8.0.425-bookworm-slim
 
     '9.0':
       image_name: clickview/dotnet-core-sdk:9.0
       data:
-        image_version: 9.0.309-bookworm-slim
+        image_version: 9.0.318-bookworm-slim
 
     '10.0':
       image_name: clickview/dotnet-core-sdk:10.0
       data:
-        image_version: 10.0.102-noble
+        image_version: 10.0.401-noble

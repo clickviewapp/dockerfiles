@@ -1,4 +1,4 @@
-ARG newrelic_agent_version=10.47.2
+ARG newrelic_agent_version=10.55.0
 
 # Stage to download and extract the new relic agent
 FROM alpine:latest AS builder
@@ -12,7 +12,6 @@ ARG newrelic_agent_version
 RUN curl -SL --output newrelicagent.tar.gz https://download.newrelic.com/dot_net_agent/previous_releases/${newrelic_agent_version}/newrelic-dotnet-agent_${newrelic_agent_version}_amd64.tar.gz \
     && tar -ozxf newrelicagent.tar.gz -C /usr/local \
     && rm newrelicagent.tar.gz
-
 
 # Main image
 FROM {{image_repo}}:{{image_version}}-{{image_type}}
