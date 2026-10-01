@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0.309-bookworm-slim
+FROM mcr.microsoft.com/dotnet/sdk:9.0.318-bookworm-slim
 
 # Add dotnet tools to path
 ENV PATH="/root/.dotnet/tools:${PATH}"
