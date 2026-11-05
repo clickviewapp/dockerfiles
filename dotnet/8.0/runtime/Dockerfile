@@ -1,4 +1,4 @@
-ARG newrelic_agent_version=10.55.0
+ARG newrelic_agent_version=10.57.0
 
 # Stage to download and extract the new relic agent
 FROM alpine:latest AS builder
@@ -14,13 +14,13 @@ RUN curl -SL --output newrelicagent.tar.gz https://download.newrelic.com/dot_net
     && rm newrelicagent.tar.gz
 
 # Main image
-FROM mcr.microsoft.com/dotnet/runtime:8.0.31-bookworm-slim
+FROM mcr.microsoft.com/dotnet/runtime:8.0.33-bookworm-slim
 
 ARG newrelic_agent_version
 
 COPY --from=builder /usr/local /usr/local
 
-ENV DOTNET_VERSION=8.0.31 \
+ENV DOTNET_VERSION=8.0.33 \
     NEWRELIC_AGENT_VERSION=$newrelic_agent_version \ 
     CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
     CORECLR_NEWRELIC_HOME=/usr/local/newrelic-dotnet-agent \
